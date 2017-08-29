@@ -55,8 +55,6 @@
     "*.js": "lint:eslint"
   },
   "pre-commit": [
-    "test",
-    "build",
     "lint"
   ],
   "babel": {
