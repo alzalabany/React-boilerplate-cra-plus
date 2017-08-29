@@ -1,6 +1,6 @@
 {
   "name": "ischool",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "dependencies": {
     "animated": "^0.2.0",
@@ -47,11 +47,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "gen": "plop --plopfile ./generators/index.js",
-    "deploy": "react-scripts build && git push heroku master && serve -s build",
+    "deploy": "git push && git push heroku master && serve -s build",
     "lint": "eslint ./src",
     "fix": "eslint --fix ./src",
-    "sync": "npm version patch && git add . && git commit -m ",
-    "deploy":"git push && git push heroku master && serve -s build"
+    "sync": "npm version patch && git add . && git commit -m "
   },
   "lint-staged": {
     "*.js": "lint:eslint"
@@ -113,7 +112,7 @@
       }
     },
     "rules": {
-      "no-param-reassign":0,
+      "no-param-reassign": 0,
       "arrow-parens": [
         "error",
         "always"
@@ -147,7 +146,14 @@
       "jsx-a11y/role-has-required-aria-props": 2,
       "jsx-a11y/role-supports-aria-props": 2,
       "jsx-a11y/href-no-hash": "off",
-      "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+      "jsx-a11y/anchor-is-valid": [
+        "warn",
+        {
+          "aspects": [
+            "invalidHref"
+          ]
+        }
+      ],
       "max-len": 0,
       "newline-per-chained-call": 0,
       "no-confusing-arrow": 0,
