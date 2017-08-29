@@ -8,8 +8,8 @@ import makeSelectAuth from './selectors';
 import TEXT from './messages';
 
 class Auth extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  componentDidMount(){
-    this.props.dispatch({type:'AUTH_MOUNTED'});
+  componentDidMount() {
+    this.props.dispatch({ type: 'AUTH_MOUNTED' });
   }
   render() {
     return (
