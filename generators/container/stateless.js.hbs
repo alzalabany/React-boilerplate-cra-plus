@@ -1,0 +1,68 @@
+/**
+ *
+ * {{properCase name }}
+ *
+ */
+
+import React from 'react';
+import { func } from 'prop-types';
+import { connect } from 'react-redux';
+{{#if wantHeaders}}
+import { Helmet } from 'react-helmet';
+{{/if}}
+{{#if wantActionsAndReducer}}
+import { createStructuredSelector } from 'reselect';
+{{/if}}
+import { compose } from 'redux';
+
+{{#if wantActionsAndReducer}}
+import makeSelect{{properCase name}} from './selectors';
+import reducer from './reducer';
+{{/if}}
+{{#if wantMessages}}
+import TEXT from './messages';
+{{/if}}
+
+function {{ properCase name }}() {
+  return (
+    <div>
+    {{#if wantHeaders}}
+      <Helmet>
+        <title>{{properCase name}}</title>
+        <meta name="description" content="Description of {{properCase name}}" />
+      </Helmet>
+    {{/if}}
+    {{#if wantMessages}}
+      {TEXT.id}
+    {{/if}}
+    </div>
+  );
+}
+
+{{ properCase name }}.propTypes = {
+  dispatch: func.isRequired,
+};
+{{ properCase name }}.displayName = "{{ properCase name }}";
+{{ properCase name }}.defaultProps = {
+
+};
+
+{{#if wantActionsAndReducer}}
+const mapStateToProps = createStructuredSelector({
+  {{ lowerCase name }}: makeSelect{{properCase name}}(),
+});
+{{/if}}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+{{#if wantActionsAndReducer}}
+const withConnect = connect(mapStateToProps, mapDispatchToProps);
+{{else}}
+const withConnect = connect(null, mapDispatchToProps);
+{{/if}}
+
+export default withConnect({{ properCase name }});
