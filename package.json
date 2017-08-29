@@ -1,6 +1,9 @@
 {
   "name": "ischool",
-  "version": "2.0.3",
+  "config": {
+    "msg": "init"
+  },
+  "version": "2.0.1",
   "private": true,
   "dependencies": {
     "animated": "^0.2.0",
@@ -50,7 +53,7 @@
     "deploy": "git push && git push heroku master && serve -s build",
     "lint": "eslint ./src",
     "fix": "eslint --fix ./src",
-    "sync": "npm version patch && git add . && git commit -m "
+    "sync": "yarn version --new-version patch -m $npm_package_config_msg && git add . && git commit -m $npm_package_config_msg"
   },
   "lint-staged": {
     "*.js": "lint:eslint"
