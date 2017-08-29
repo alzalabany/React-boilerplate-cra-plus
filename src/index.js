@@ -7,14 +7,14 @@ import 'material-design-icons/iconfont/material-icons.css';
 import 'typeface-roboto/index.css';
 
 import createStore from './store/createStore';
-import App from './App';
+import App from './containers/AppComponent';
 import registerServiceWorker from './registerServiceWorker';
 
 // ========================================================
 // Import Global Styles
 // ========================================================
 import './global-styles';
-window.log = (process.env.NODE_ENV === 'production') ? f => f : console.log; // eslint-disable-line
+window.LOG = (process.env.NODE_ENV === 'production') ? f => f : console.log; // eslint-disable-line
 
 // ========================================================
 // Store Instantiation
@@ -41,8 +41,8 @@ const render = (AppComponent) => {
 // This code is excluded from production bundle
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
-    module.hot.accept('./App', () => {
-      const NextApp = require('./App').default; // eslint-disable-line
+    module.hot.accept('./containers/AppComponent', () => {
+      const NextApp = require('./containers/AppComponent').default; // eslint-disable-line
       render(NextApp);
     });
   }

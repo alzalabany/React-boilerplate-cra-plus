@@ -42,7 +42,7 @@ module.exports = {
   actions: (data) => {
     // Generate index.js and index.test.js
     let componentTemplate;
-
+    console.log(data);
     switch (data.type) {
       case 'Stateless Function': {
         componentTemplate = './component/stateless.js.hbs';
